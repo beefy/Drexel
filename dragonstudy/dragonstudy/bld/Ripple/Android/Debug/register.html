@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DragonStudy</title>
+
+    <!-- dragonstudy references -->
+    <link href="css/index.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+
+        <br />
+        <br />
+
+        <form>
+            <fieldset>
+                <legend>Register</legend>
+                <label>
+                    Drexel Email:
+                    <br />
+                    <input type="text" name="username" maxlength="30" />
+                    <br />
+                </label>
+
+                <label>
+                    Password:
+                    <br />
+                    <input type="password" name="password" maxlength="30" />
+                    <br />
+                </label>
+                <label>
+                    Re-Enter Password:
+                    <br />
+                    <input type="password" name="password2" maxlength="30" />
+                    <br />
+                    <br />
+                </label>
+
+                <input type="submit" name="register" value="Submit" onclick="userEntry(this.form)" class="myButton">
+            </fieldset>
+        </form>
+        <button onclick="location.replace('index.html');" class="myButton">
+            Back
+        </button>
+        <script>
+            function userEntry(form) {
+                if (form.password.value != form.password2.value) {
+                    location.replace('register.html')
+                    alert("Your password does not match")
+                }
+
+                else
+                    location.replace('profile.html')
+            }
+        </script>
+
+
+
+    </div>
+
+
+</body>
+</html>

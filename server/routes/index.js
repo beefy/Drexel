@@ -1,9 +1,9 @@
 var mongoose = require("mongoose");
-var board = mongoose.model('board');
+var boardObject = mongoose.model('board');
 
 exports.getPosts = function (req, res) {
 
-    board.find({}, function (err, gotPosts) {
+    boardObject.find({}, function (err, gotPosts) {
         if (err) {
             console.log(err);
             res.send(err);
@@ -14,11 +14,19 @@ exports.getPosts = function (req, res) {
 }
 
 exports.makePost = function (req, res) {
-    var board = new board({
+    var board = new boardObject({
         text: req.body.post_text
     });
 
     board.save(function () {
         res.send("Saved post: " + req.body.post_text)
     });
-};
+}
+
+    //exports.makePost = function (req, res) {
+    //    board.save({
+    //        text: req.body.post_text
+    //    }, function (error, docs) {
+    //        res.redirect('/')
+    //    })
+    //};

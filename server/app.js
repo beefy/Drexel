@@ -32,6 +32,7 @@ app.use(app.router);
 
 app.get('/getPosts', index.getPosts);
 app.post('/postPost', index.makePost);
+app.delete('/dropPost/:id', index.dropPost);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

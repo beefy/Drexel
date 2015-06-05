@@ -23,10 +23,13 @@ exports.makePost = function (req, res) {
     });
 }
 
-    //exports.makePost = function (req, res) {
-    //    board.save({
-    //        text: req.body.post_text
-    //    }, function (error, docs) {
-    //        res.redirect('/')
-    //    })
-    //};
+exports.dropPost = function (req, res) {
+    boardObject.remove({ _id: req.params.id }, function (err, gotPost) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.send("Post removed: " + req.params.id)
+        }
+    });
+};
